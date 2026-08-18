@@ -2,8 +2,6 @@ package com.jalch.kata.algorithm.recursion;
 
 import org.junit.jupiter.api.Test;
 
-import com.jalch.kata.algorithm.recursion.SumUsingListedDigits;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
