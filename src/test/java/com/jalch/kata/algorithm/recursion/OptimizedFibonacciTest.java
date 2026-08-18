@@ -1,50 +1,48 @@
 package com.jalch.kata.algorithm.recursion;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 
 public class OptimizedFibonacciTest {
 
     private OptimizedFibonacci underTest;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         underTest = new OptimizedFibonacci();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negative() {
-        underTest.calculate(-1, new long[1]);
-        underTest.calculate(-9, new long[1]);
-        underTest.calculate(-1000000, new long[1]);
+        assertThrows(IllegalArgumentException.class, () -> underTest.calculate(-1, new long[1]));
+        assertThrows(IllegalArgumentException.class, () -> underTest.calculate(-9, new long[1]));
+        assertThrows(IllegalArgumentException.class, () -> underTest.calculate(-1000000, new long[1]));
     }
 
     @Test
     public void zero() throws IllegalArgumentException {
-        assertThat(underTest.calculate(0, new long[1]), is(0L));
+        assertEquals(0L, underTest.calculate(0, new long[1]));
     }
 
     @Test
     public void one() throws IllegalArgumentException {
-        assertThat(underTest.calculate(1, new long[1]), is(1L));
+        assertEquals(1L, underTest.calculate(1, new long[1]));
     }
 
     @Test
     public void two_or_more() {
-        assertThat(underTest.calculate(2, new long[11]), is(1L));
-        assertThat(underTest.calculate(3, new long[11]), is(2L));
-        assertThat(underTest.calculate(4, new long[11]), is(3L));
-        assertThat(underTest.calculate(5, new long[11]), is(5L));
-        assertThat(underTest.calculate(6, new long[11]), is(8L));
-        assertThat(underTest.calculate(7, new long[11]), is(13L));
-        assertThat(underTest.calculate(8, new long[11]), is(21L));
-        assertThat(underTest.calculate(9, new long[11]), is(34L));
-        assertThat(underTest.calculate(10, new long[11]), is(55L));
-        assertThat(underTest.calculate(46, new long[47]), is(1_836_311_903L));
-        assertThat(underTest.calculate(83, new long[84]), is(99_194_853_094_755_497L));
+        assertEquals(1L, underTest.calculate(2, new long[11]));
+        assertEquals(2L, underTest.calculate(3, new long[11]));
+        assertEquals(3L, underTest.calculate(4, new long[11]));
+        assertEquals(5L, underTest.calculate(5, new long[11]));
+        assertEquals(8L, underTest.calculate(6, new long[11]));
+        assertEquals(13L, underTest.calculate(7, new long[11]));
+        assertEquals(21L, underTest.calculate(8, new long[11]));
+        assertEquals(34L, underTest.calculate(9, new long[11]));
+        assertEquals(55L, underTest.calculate(10, new long[11]));
+        assertEquals(1_836_311_903L, underTest.calculate(46, new long[47]));
+        assertEquals(99_194_853_094_755_497L, underTest.calculate(83, new long[84]));
     }
 
 }

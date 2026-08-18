@@ -1,10 +1,11 @@
 package com.jalch.kata.algorithm.lang;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 import static com.jalch.kata.algorithm.lang.BalancedBrackets.isBalanced;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+
 
 public class BalancedBracketsTest {
 

@@ -1,9 +1,7 @@
 package com.jalch.kata.algorithm.lang;
 
-import org.junit.Test;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SameCharactersRepetitionsExceptAsManyAsOneTest {
 
@@ -11,57 +9,57 @@ public class SameCharactersRepetitionsExceptAsManyAsOneTest {
 
     @Test
     public void null_input() {
-        assertThat(underTest.valid(null), is("NO"));
+        assertEquals("NO", underTest.valid(null));
     }
 
     @Test
     public void empty_input() {
-        assertThat(underTest.valid(""), is("NO"));
+        assertEquals("NO", underTest.valid(""));
     }
 
     @Test
     public void not_between_a_to_z() {
-        assertThat(underTest.valid("1"), is("NO"));
-        assertThat(underTest.valid("_"), is("NO"));
-        assertThat(underTest.valid("2131234"), is("NO"));
-        assertThat(underTest.valid("*"), is("NO"));
-        assertThat(underTest.valid("A"), is("NO"));
-        assertThat(underTest.valid("P"), is("NO"));
-        assertThat(underTest.valid("~"), is("NO"));
+        assertEquals("NO", underTest.valid("1"));
+        assertEquals("NO", underTest.valid("_"));
+        assertEquals("NO", underTest.valid("2131234"));
+        assertEquals("NO", underTest.valid("*"));
+        assertEquals("NO", underTest.valid("A"));
+        assertEquals("NO", underTest.valid("P"));
+        assertEquals("NO", underTest.valid("~"));
     }
 
     @Test
     public void single_valid_character() {
-        assertThat(underTest.valid("a"), is("YES"));
-        assertThat(underTest.valid("b"), is("YES"));
-        assertThat(underTest.valid("d"), is("YES"));
-        assertThat(underTest.valid("f"), is("YES"));
-        assertThat(underTest.valid("j"), is("YES"));
-        assertThat(underTest.valid("n"), is("YES"));
-        assertThat(underTest.valid("t"), is("YES"));
-        assertThat(underTest.valid("z"), is("YES"));
+        assertEquals("YES", underTest.valid("a"));
+        assertEquals("YES", underTest.valid("b"));
+        assertEquals("YES", underTest.valid("d"));
+        assertEquals("YES", underTest.valid("f"));
+        assertEquals("YES", underTest.valid("j"));
+        assertEquals("YES", underTest.valid("n"));
+        assertEquals("YES", underTest.valid("t"));
+        assertEquals("YES", underTest.valid("z"));
     }
 
     @Test
     public void same_repetitions() {
-        assertThat(underTest.valid("aa"), is("YES"));
-        assertThat(underTest.valid("cababc"), is("YES"));
-        assertThat(underTest.valid("abc"), is("YES"));
+        assertEquals("YES", underTest.valid("aa"));
+        assertEquals("YES", underTest.valid("cababc"));
+        assertEquals("YES", underTest.valid("abc"));
     }
 
     @Test
     public void not_same_repetitions() {
-        assertThat(underTest.valid("aabxgb"), is("NO"));
-        assertThat(underTest.valid("ababdc"), is("NO"));
-        assertThat(underTest.valid("ccabc"), is("NO"));
+        assertEquals("NO", underTest.valid("aabxgb"));
+        assertEquals("NO", underTest.valid("ababdc"));
+        assertEquals("NO", underTest.valid("ccabc"));
     }
 
     @Test
     public void same_repetitions_but_one() {
-        assertThat(underTest.valid("aac"), is("YES"));
-        assertThat(underTest.valid("cababc"), is("YES"));
-        assertThat(underTest.valid("abc"), is("YES"));
+        assertEquals("YES", underTest.valid("aac"));
+        assertEquals("YES", underTest.valid("cababc"));
+        assertEquals("YES", underTest.valid("abc"));
         //AA BB CC DD EEE FF GG HH
-        assertThat(underTest.valid("abcdefghhgfedecba"), is("YES"));
+        assertEquals("YES", underTest.valid("abcdefghhgfedecba"));
     }
 }

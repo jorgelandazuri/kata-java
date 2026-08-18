@@ -1,92 +1,90 @@
 package com.jalch.kata.algorithm.lang;
 
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StringToIntegerTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void null_input() {
-        StringToInteger.convert(null);
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert(null));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void empty_input() {
-        StringToInteger.convert("");
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert(""));
     }
 
     @Test
     public void zero() {
-        assertThat(StringToInteger.convert("0"), is(0));
+        assertEquals(0, StringToInteger.convert("0"));
     }
 
     @Test
     public void single_digit_positive_number() {
-        assertThat(StringToInteger.convert("1"), is(1));
-        assertThat(StringToInteger.convert("2"), is(2));
-        assertThat(StringToInteger.convert("3"), is(3));
-        assertThat(StringToInteger.convert("4"), is(4));
-        assertThat(StringToInteger.convert("5"), is(5));
-        assertThat(StringToInteger.convert("6"), is(6));
-        assertThat(StringToInteger.convert("7"), is(7));
-        assertThat(StringToInteger.convert("8"), is(8));
-        assertThat(StringToInteger.convert("9"), is(9));
+        assertEquals(1, StringToInteger.convert("1"));
+        assertEquals(2, StringToInteger.convert("2"));
+        assertEquals(3, StringToInteger.convert("3"));
+        assertEquals(4, StringToInteger.convert("4"));
+        assertEquals(5, StringToInteger.convert("5"));
+        assertEquals(6, StringToInteger.convert("6"));
+        assertEquals(7, StringToInteger.convert("7"));
+        assertEquals(8, StringToInteger.convert("8"));
+        assertEquals(9, StringToInteger.convert("9"));
     }
 
     @Test
     public void single_digit_negative_number() {
-        assertThat(StringToInteger.convert("-1"), is(-1));
-        assertThat(StringToInteger.convert("-2"), is(-2));
-        assertThat(StringToInteger.convert("-3"), is(-3));
-        assertThat(StringToInteger.convert("-4"), is(-4));
-        assertThat(StringToInteger.convert("-5"), is(-5));
-        assertThat(StringToInteger.convert("-6"), is(-6));
-        assertThat(StringToInteger.convert("-7"), is(-7));
-        assertThat(StringToInteger.convert("-8"), is(-8));
-        assertThat(StringToInteger.convert("-9"), is(-9));
+        assertEquals(-1, StringToInteger.convert("-1"));
+        assertEquals(-2, StringToInteger.convert("-2"));
+        assertEquals(-3, StringToInteger.convert("-3"));
+        assertEquals(-4, StringToInteger.convert("-4"));
+        assertEquals(-5, StringToInteger.convert("-5"));
+        assertEquals(-6, StringToInteger.convert("-6"));
+        assertEquals(-7, StringToInteger.convert("-7"));
+        assertEquals(-8, StringToInteger.convert("-8"));
+        assertEquals(-9, StringToInteger.convert("-9"));
     }
 
     @Test
     public void multiple_digit_positive_numbers() {
-        assertThat(StringToInteger.convert("12"), is(12));
-        assertThat(StringToInteger.convert("2134"), is(2134));
-        assertThat(StringToInteger.convert("9992"), is(9992));
-        assertThat(StringToInteger.convert(String.valueOf(Integer.MAX_VALUE)), is(Integer.MAX_VALUE));
+        assertEquals(12, StringToInteger.convert("12"));
+        assertEquals(2134, StringToInteger.convert("2134"));
+        assertEquals(9992, StringToInteger.convert("9992"));
+        assertEquals(Integer.MAX_VALUE, StringToInteger.convert(String.valueOf(Integer.MAX_VALUE)));
     }
 
     @Test
     public void multiple_digit_negative_numbers() {
-        assertThat(StringToInteger.convert("-12"), is(-12));
-        assertThat(StringToInteger.convert("-2134"), is(-2134));
-        assertThat(StringToInteger.convert("-9992"), is(-9992));
-        assertThat(StringToInteger.convert(String.valueOf(Integer.MIN_VALUE)), is(Integer.MIN_VALUE));
+        assertEquals(-12, StringToInteger.convert("-12"));
+        assertEquals(-2134, StringToInteger.convert("-2134"));
+        assertEquals(-9992, StringToInteger.convert("-9992"));
+        assertEquals(Integer.MIN_VALUE, StringToInteger.convert(String.valueOf(Integer.MIN_VALUE)));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void single_dash() {
-        StringToInteger.convert("-");
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert("-"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negative_and_letters_input() {
-        StringToInteger.convert("-12asf");
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert("-12asf"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void number_middle_dash_and_letters_input() {
-        StringToInteger.convert("12-asf");
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert("12-asf"));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void underscore_number_and_letters_input() {
-        StringToInteger.convert("_1f");
-        StringToInteger.convert("    ");
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert("_1f"));
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert("    "));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void spaces_input() {
-        StringToInteger.convert("       ");
+        assertThrows(IllegalArgumentException.class, () -> StringToInteger.convert("       "));
     }
 }

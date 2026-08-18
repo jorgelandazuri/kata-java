@@ -1,47 +1,45 @@
 package com.jalch.kata.algorithm.lang;
 
-import org.junit.Test;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EnDeCoderTest {
 
     @Test
     public void encode_null() {
-        assertThat(EnDeCoder.encode(null), is(""));
+        assertEquals("", EnDeCoder.encode(null));
     }
 
     @Test
     public void encode_empty() {
-        assertThat(EnDeCoder.encode(""), is(""));
+        assertEquals("", EnDeCoder.encode(""));
     }
 
     @Test
     public void encode_not_empty() {
-        assertThat(EnDeCoder.encode("foo"), is("f2o"));
-        assertThat(EnDeCoder.encode("foofoo"), is("f2of2o"));
-        assertThat(EnDeCoder.encode("foooooooooooo"), is("f12o"));
-        assertThat(EnDeCoder.encode("bar"), is("bar"));
-        assertThat(EnDeCoder.encode("hello"), is("he2lo"));
+        assertEquals("f2o", EnDeCoder.encode("foo"));
+        assertEquals("f2of2o", EnDeCoder.encode("foofoo"));
+        assertEquals("f12o", EnDeCoder.encode("foooooooooooo"));
+        assertEquals("bar", EnDeCoder.encode("bar"));
+        assertEquals("he2lo", EnDeCoder.encode("hello"));
     }
 
     @Test
     public void decode_null() {
-        assertThat(EnDeCoder.decode(null), is(""));
+        assertEquals("", EnDeCoder.decode(null));
     }
 
     @Test
     public void decode_empty() {
-        assertThat(EnDeCoder.decode(""), is(""));
+        assertEquals("", EnDeCoder.decode(""));
     }
 
     @Test
     public void decode_not_empty() {
-        assertThat(EnDeCoder.decode("f2o"), is("foo"));
-        assertThat(EnDeCoder.decode("f2of2o"), is("foofoo"));
-        assertThat(EnDeCoder.decode("f12o"), is("foooooooooooo"));
-        assertThat(EnDeCoder.decode("bar"), is("bar"));
-        assertThat(EnDeCoder.decode("he2lo"), is("hello"));
+        assertEquals("foo", EnDeCoder.decode("f2o"));
+        assertEquals("foofoo", EnDeCoder.decode("f2of2o"));
+        assertEquals("foooooooooooo", EnDeCoder.decode("f12o"));
+        assertEquals("bar", EnDeCoder.decode("bar"));
+        assertEquals("hello", EnDeCoder.decode("he2lo"));
     }
 }

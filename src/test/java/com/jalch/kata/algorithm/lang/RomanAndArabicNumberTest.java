@@ -1,111 +1,109 @@
 package com.jalch.kata.algorithm.lang;
 
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RomanAndArabicNumberTest {
 
     @Test
     public void null_string() {
-        assertThat(RomanAndArabicNumber.convert(null), is(""));
+        assertEquals("", RomanAndArabicNumber.convert(null));
     }
 
     @Test
     public void empty_string() {
-        assertThat(RomanAndArabicNumber.convert(""), is(""));
+        assertEquals("", RomanAndArabicNumber.convert(""));
     }
 
     @Test
     public void invalid_or_negative_or_zero() {
-        assertThat(RomanAndArabicNumber.convert("--345"), is(""));
-        assertThat(RomanAndArabicNumber.convert("-345"), is(""));
-        assertThat(RomanAndArabicNumber.convert("-1"), is(""));
-        assertThat(RomanAndArabicNumber.convert("0"), is(""));
+        assertEquals("", RomanAndArabicNumber.convert("--345"));
+        assertEquals("", RomanAndArabicNumber.convert("-345"));
+        assertEquals("", RomanAndArabicNumber.convert("-1"));
+        assertEquals("", RomanAndArabicNumber.convert("0"));
     }
 
     @Test
     public void invalid_roman() {
-        assertThat(RomanAndArabicNumber.convert("a"), is(""));
-        assertThat(RomanAndArabicNumber.convert("_I"), is(""));
-        assertThat(RomanAndArabicNumber.convert("*"), is(""));
-        assertThat(RomanAndArabicNumber.convert("IIIV"), is(""));
-        assertThat(RomanAndArabicNumber.convert("IIIX"), is(""));
-        assertThat(RomanAndArabicNumber.convert("-I"), is(""));
+        assertEquals("", RomanAndArabicNumber.convert("a"));
+        assertEquals("", RomanAndArabicNumber.convert("_I"));
+        assertEquals("", RomanAndArabicNumber.convert("*"));
+        assertEquals("", RomanAndArabicNumber.convert("IIIV"));
+        assertEquals("", RomanAndArabicNumber.convert("IIIX"));
+        assertEquals("", RomanAndArabicNumber.convert("-I"));
     }
 
     @Test
     public void valid_arabic_to_roman() {
-        assertThat(RomanAndArabicNumber.convert("1"), is("I"));
-        assertThat(RomanAndArabicNumber.convert("2"), is("II"));
-        assertThat(RomanAndArabicNumber.convert("3"), is("III"));
-        assertThat(RomanAndArabicNumber.convert("4"), is("IV"));
-        assertThat(RomanAndArabicNumber.convert("5"), is("V"));
-        assertThat(RomanAndArabicNumber.convert("6"), is("VI"));
-        assertThat(RomanAndArabicNumber.convert("7"), is("VII"));
-        assertThat(RomanAndArabicNumber.convert("8"), is("VIII"));
-        assertThat(RomanAndArabicNumber.convert("9"), is("IX"));
-        assertThat(RomanAndArabicNumber.convert("10"), is("X"));
-        assertThat(RomanAndArabicNumber.convert("11"), is("XI"));
-        assertThat(RomanAndArabicNumber.convert("14"), is("XIV"));
-        assertThat(RomanAndArabicNumber.convert("19"), is("XIX"));
-        assertThat(RomanAndArabicNumber.convert("39"), is("XXXIX"));
-        assertThat(RomanAndArabicNumber.convert("40"), is("XL"));
-        assertThat(RomanAndArabicNumber.convert("50"), is("L"));
-        assertThat(RomanAndArabicNumber.convert("74"), is("LXXIV"));
-        assertThat(RomanAndArabicNumber.convert("90"), is("XC"));
-        assertThat(RomanAndArabicNumber.convert("97"), is("XCVII"));
-        assertThat(RomanAndArabicNumber.convert("99"), is("XCIX"));
-        assertThat(RomanAndArabicNumber.convert("100"), is("C"));
-        assertThat(RomanAndArabicNumber.convert("329"), is("CCCXXIX"));
-        assertThat(RomanAndArabicNumber.convert("487"), is("CDLXXXVII"));
-        assertThat(RomanAndArabicNumber.convert("490"), is("CDXC"));
-        assertThat(RomanAndArabicNumber.convert("500"), is("D"));
-        assertThat(RomanAndArabicNumber.convert("617"), is("DCXVII"));
-        assertThat(RomanAndArabicNumber.convert("901"), is("CMI"));
-        assertThat(RomanAndArabicNumber.convert("949"), is("CMXLIX"));
-        assertThat(RomanAndArabicNumber.convert("999"), is("CMXCIX"));
-        assertThat(RomanAndArabicNumber.convert("3999"), is("MMMCMXCIX"));
-        assertThat(RomanAndArabicNumber.convert("4000"), is("MMMM"));
-        assertThat(RomanAndArabicNumber.convert("4900"), is("MMMMCM"));
-        assertThat(RomanAndArabicNumber.convert("4999"), is("MMMMCMXCIX"));
+        assertEquals("I", RomanAndArabicNumber.convert("1"));
+        assertEquals("II", RomanAndArabicNumber.convert("2"));
+        assertEquals("III", RomanAndArabicNumber.convert("3"));
+        assertEquals("IV", RomanAndArabicNumber.convert("4"));
+        assertEquals("V", RomanAndArabicNumber.convert("5"));
+        assertEquals("VI", RomanAndArabicNumber.convert("6"));
+        assertEquals("VII", RomanAndArabicNumber.convert("7"));
+        assertEquals("VIII", RomanAndArabicNumber.convert("8"));
+        assertEquals("IX", RomanAndArabicNumber.convert("9"));
+        assertEquals("X", RomanAndArabicNumber.convert("10"));
+        assertEquals("XI", RomanAndArabicNumber.convert("11"));
+        assertEquals("XIV", RomanAndArabicNumber.convert("14"));
+        assertEquals("XIX", RomanAndArabicNumber.convert("19"));
+        assertEquals("XXXIX", RomanAndArabicNumber.convert("39"));
+        assertEquals("XL", RomanAndArabicNumber.convert("40"));
+        assertEquals("L", RomanAndArabicNumber.convert("50"));
+        assertEquals("LXXIV", RomanAndArabicNumber.convert("74"));
+        assertEquals("XC", RomanAndArabicNumber.convert("90"));
+        assertEquals("XCVII", RomanAndArabicNumber.convert("97"));
+        assertEquals("XCIX", RomanAndArabicNumber.convert("99"));
+        assertEquals("C", RomanAndArabicNumber.convert("100"));
+        assertEquals("CCCXXIX", RomanAndArabicNumber.convert("329"));
+        assertEquals("CDLXXXVII", RomanAndArabicNumber.convert("487"));
+        assertEquals("CDXC", RomanAndArabicNumber.convert("490"));
+        assertEquals("D", RomanAndArabicNumber.convert("500"));
+        assertEquals("DCXVII", RomanAndArabicNumber.convert("617"));
+        assertEquals("CMI", RomanAndArabicNumber.convert("901"));
+        assertEquals("CMXLIX", RomanAndArabicNumber.convert("949"));
+        assertEquals("CMXCIX", RomanAndArabicNumber.convert("999"));
+        assertEquals("MMMCMXCIX", RomanAndArabicNumber.convert("3999"));
+        assertEquals("MMMM", RomanAndArabicNumber.convert("4000"));
+        assertEquals("MMMMCM", RomanAndArabicNumber.convert("4900"));
+        assertEquals("MMMMCMXCIX", RomanAndArabicNumber.convert("4999"));
     }
 
     @Test
     public void valid_roman_to_arabic() {
-        assertThat(RomanAndArabicNumber.convert("I"), is("1"));
-        assertThat(RomanAndArabicNumber.convert("II"), is("2"));
-        assertThat(RomanAndArabicNumber.convert("III"), is("3"));
-        assertThat(RomanAndArabicNumber.convert("IV"), is("4"));
-        assertThat(RomanAndArabicNumber.convert("V"), is("5"));
-        assertThat(RomanAndArabicNumber.convert("VI"), is("6"));
-        assertThat(RomanAndArabicNumber.convert("VII"), is("7"));
-        assertThat(RomanAndArabicNumber.convert("VIII"), is("8"));
-        assertThat(RomanAndArabicNumber.convert("IX"), is("9"));
-        assertThat(RomanAndArabicNumber.convert("X"), is("10"));
-        assertThat(RomanAndArabicNumber.convert("XI"), is("11"));
-        assertThat(RomanAndArabicNumber.convert("XIV"), is("14"));
-        assertThat(RomanAndArabicNumber.convert("XIX"), is("19"));
-        assertThat(RomanAndArabicNumber.convert("XXXIX"), is("39"));
-        assertThat(RomanAndArabicNumber.convert("XL"), is("40"));
-        assertThat(RomanAndArabicNumber.convert("L"), is("50"));
-        assertThat(RomanAndArabicNumber.convert("LXXIV"), is("74"));
-        assertThat(RomanAndArabicNumber.convert("XC"), is("90"));
-        assertThat(RomanAndArabicNumber.convert("XCVII"), is("97"));
-        assertThat(RomanAndArabicNumber.convert("XCIX"), is("99"));
-        assertThat(RomanAndArabicNumber.convert("C"), is("100"));
-        assertThat(RomanAndArabicNumber.convert("CCCXXIX"), is("329"));
-        assertThat(RomanAndArabicNumber.convert("CDLXXXVII"), is("487"));
-        assertThat(RomanAndArabicNumber.convert("CDXC"), is("490"));
-        assertThat(RomanAndArabicNumber.convert("D"), is("500"));
-        assertThat(RomanAndArabicNumber.convert("DCXVII"), is("617"));
-        assertThat(RomanAndArabicNumber.convert("CMI"), is("901"));
-        assertThat(RomanAndArabicNumber.convert("CMXLIX"), is("949"));
-        assertThat(RomanAndArabicNumber.convert("CMXCIX"), is("999"));
-        assertThat(RomanAndArabicNumber.convert("MMMCMXCIX"), is("3999"));
-        assertThat(RomanAndArabicNumber.convert("MMMM"), is("4000"));
-        assertThat(RomanAndArabicNumber.convert("MMMMCM"), is("4900"));
-        assertThat(RomanAndArabicNumber.convert("MMMMCMXCIX"), is("4999"));
+        assertEquals("1", RomanAndArabicNumber.convert("I"));
+        assertEquals("2", RomanAndArabicNumber.convert("II"));
+        assertEquals("3", RomanAndArabicNumber.convert("III"));
+        assertEquals("4", RomanAndArabicNumber.convert("IV"));
+        assertEquals("5", RomanAndArabicNumber.convert("V"));
+        assertEquals("6", RomanAndArabicNumber.convert("VI"));
+        assertEquals("7", RomanAndArabicNumber.convert("VII"));
+        assertEquals("8", RomanAndArabicNumber.convert("VIII"));
+        assertEquals("9", RomanAndArabicNumber.convert("IX"));
+        assertEquals("10", RomanAndArabicNumber.convert("X"));
+        assertEquals("11", RomanAndArabicNumber.convert("XI"));
+        assertEquals("14", RomanAndArabicNumber.convert("XIV"));
+        assertEquals("19", RomanAndArabicNumber.convert("XIX"));
+        assertEquals("39", RomanAndArabicNumber.convert("XXXIX"));
+        assertEquals("40", RomanAndArabicNumber.convert("XL"));
+        assertEquals("50", RomanAndArabicNumber.convert("L"));
+        assertEquals("74", RomanAndArabicNumber.convert("LXXIV"));
+        assertEquals("90", RomanAndArabicNumber.convert("XC"));
+        assertEquals("97", RomanAndArabicNumber.convert("XCVII"));
+        assertEquals("99", RomanAndArabicNumber.convert("XCIX"));
+        assertEquals("100", RomanAndArabicNumber.convert("C"));
+        assertEquals("329", RomanAndArabicNumber.convert("CCCXXIX"));
+        assertEquals("487", RomanAndArabicNumber.convert("CDLXXXVII"));
+        assertEquals("490", RomanAndArabicNumber.convert("CDXC"));
+        assertEquals("500", RomanAndArabicNumber.convert("D"));
+        assertEquals("617", RomanAndArabicNumber.convert("DCXVII"));
+        assertEquals("901", RomanAndArabicNumber.convert("CMI"));
+        assertEquals("949", RomanAndArabicNumber.convert("CMXLIX"));
+        assertEquals("999", RomanAndArabicNumber.convert("CMXCIX"));
+        assertEquals("3999", RomanAndArabicNumber.convert("MMMCMXCIX"));
+        assertEquals("4000", RomanAndArabicNumber.convert("MMMM"));
+        assertEquals("4900", RomanAndArabicNumber.convert("MMMMCM"));
+        assertEquals("4999", RomanAndArabicNumber.convert("MMMMCMXCIX"));
     }
 }

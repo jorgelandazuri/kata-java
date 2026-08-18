@@ -1,14 +1,13 @@
 package com.jalch.kata.algorithm.sorting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ReachValueWithMinimumNumberOfCoinsWithGivenDenominationsTest {
@@ -20,25 +19,25 @@ public class ReachValueWithMinimumNumberOfCoinsWithGivenDenominationsTest {
     @Test
     public void null_list() {
         List<Integer> result = ReachValueWithMinimumNumberOfCoinsWithGivenDenominations.getCoins(null, ANY_VALUE);
-        assertThat(result.get(0), is(NOT_FOUND_VALUES_RESPONSE.get(0)));
+        assertEquals(NOT_FOUND_VALUES_RESPONSE.get(0), result.get(0));
     }
 
     @Test
     public void empty_list() {
         List<Integer> result = ReachValueWithMinimumNumberOfCoinsWithGivenDenominations.getCoins(new ArrayList<>(), ANY_VALUE);
-        assertThat(result.get(0), is(NOT_FOUND_VALUES_RESPONSE.get(0)));
+        assertEquals(NOT_FOUND_VALUES_RESPONSE.get(0), result.get(0));
     }
 
     @Test
     public void negative_value() {
         List<Integer> result = ReachValueWithMinimumNumberOfCoinsWithGivenDenominations.getCoins(ANY_LIST, -1);
-        assertThat(result.get(0), is(NOT_FOUND_VALUES_RESPONSE.get(0)));
+        assertEquals(NOT_FOUND_VALUES_RESPONSE.get(0), result.get(0));
     }
 
     @Test
     public void zero_value() {
         List<Integer> result = ReachValueWithMinimumNumberOfCoinsWithGivenDenominations.getCoins(ANY_LIST, 0);
-        assertThat(result.get(0), is(NOT_FOUND_VALUES_RESPONSE.get(0)));
+        assertEquals(NOT_FOUND_VALUES_RESPONSE.get(0), result.get(0));
     }
 
     @Test
@@ -56,6 +55,6 @@ public class ReachValueWithMinimumNumberOfCoinsWithGivenDenominationsTest {
     private void assertExpectedDenominationsForValue(int value, List<Integer> expected) {
         List<Integer> denominations = Arrays.asList(5,50,5,100,1,20,2,10,27,1);
         List<Integer> result = ReachValueWithMinimumNumberOfCoinsWithGivenDenominations.getCoins(denominations, value);
-        assertThat(result, is(expected));
+        assertEquals(expected, result);
     }
 }

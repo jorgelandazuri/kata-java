@@ -1,13 +1,9 @@
 package com.jalch.kata.algorithm.search;
 
 import com.jalch.kata.algorithm.search.CheapestNConsecutiveSeats.Seat;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import java.util.Random;
-
-import static org.hamcrest.core.Is.is;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CheapestNConsecutiveSeatsTest {
 
@@ -15,23 +11,23 @@ public class CheapestNConsecutiveSeatsTest {
 
     @Test
     public void negative_required_seats() {
-        assertThat(CheapestNConsecutiveSeats.find(SOME_PLANE_SEATS, -1).length, is(0));
+        assertEquals(0, CheapestNConsecutiveSeats.find(SOME_PLANE_SEATS, -1).length);
     }
 
     @Test
     public void zero_required_seats() {
-        assertThat(CheapestNConsecutiveSeats.find(SOME_PLANE_SEATS, 0).length, is(0));
+        assertEquals(0, CheapestNConsecutiveSeats.find(SOME_PLANE_SEATS, 0).length);
     }
 
     @Test
     public void plane_with_no_seats() {
         int anyRequiredSeats = 5;
-        assertThat(CheapestNConsecutiveSeats.find(new Seat[0][0], anyRequiredSeats).length, is(0));
+        assertEquals(0, CheapestNConsecutiveSeats.find(new Seat[0][0], anyRequiredSeats).length);
     }
 
     @Test
     public void required_more_seats_than_columns_available() {
-        assertThat(CheapestNConsecutiveSeats.find(SOME_PLANE_SEATS, 7).length, is(0));
+        assertEquals(0, CheapestNConsecutiveSeats.find(SOME_PLANE_SEATS, 7).length);
     }
 
     @Test
@@ -46,13 +42,13 @@ public class CheapestNConsecutiveSeatsTest {
                 new Seat(4, 0, 5, true)};
         inputPlane[0] = row;
         Seat[] result = CheapestNConsecutiveSeats.find(inputPlane, 6);
-        assertThat(result.length, is(6));
-        assertThat(result[0].seatId, is(row[0].seatId));
-        assertThat(result[1].seatId, is(row[1].seatId));
-        assertThat(result[2].seatId, is(row[2].seatId));
-        assertThat(result[3].seatId, is(row[3].seatId));
-        assertThat(result[4].seatId, is(row[4].seatId));
-        assertThat(result[5].seatId, is(row[5].seatId));
+        assertEquals(6, result.length);
+        assertEquals(row[0].seatId, result[0].seatId);
+        assertEquals(row[1].seatId, result[1].seatId);
+        assertEquals(row[2].seatId, result[2].seatId);
+        assertEquals(row[3].seatId, result[3].seatId);
+        assertEquals(row[4].seatId, result[4].seatId);
+        assertEquals(row[5].seatId, result[5].seatId);
 
         row = new Seat[]{
                 new Seat(1, 0, 0,  true),
@@ -63,9 +59,9 @@ public class CheapestNConsecutiveSeatsTest {
                 new Seat(4, 0, 5, true)};
         inputPlane[0] = row;
         result = CheapestNConsecutiveSeats.find(inputPlane, 2);
-        assertThat(result.length, is(2));
-        assertThat(result[0].seatId, is(row[0].seatId));
-        assertThat(result[1].seatId, is(row[1].seatId));
+        assertEquals(2, result.length);
+        assertEquals(row[0].seatId, result[0].seatId);
+        assertEquals(row[1].seatId, result[1].seatId);
 
         row = new Seat[]{
                 new Seat(3, 0, 0,  true),
@@ -76,10 +72,10 @@ public class CheapestNConsecutiveSeatsTest {
                 new Seat(4, 0, 5, true)};
         inputPlane[0] = row;
         result = CheapestNConsecutiveSeats.find(inputPlane, 3);
-        assertThat(result.length, is(3));
-        assertThat(result[0].seatId, is(row[2].seatId));
-        assertThat(result[1].seatId, is(row[3].seatId));
-        assertThat(result[2].seatId, is(row[4].seatId));
+        assertEquals(3, result.length);
+        assertEquals(row[2].seatId, result[0].seatId);
+        assertEquals(row[3].seatId, result[1].seatId);
+        assertEquals(row[4].seatId, result[2].seatId);
     }
 
     @Test
@@ -97,8 +93,8 @@ public class CheapestNConsecutiveSeatsTest {
                 new Seat(4, 0, 8, false),
                 new Seat(5, 0, 9, false)};
         inputPlane[0] = row;
-        assertThat(CheapestNConsecutiveSeats.find(inputPlane, 2).length, is(0));
-        assertThat(CheapestNConsecutiveSeats.find(inputPlane, 1).length, is(0));
+        assertEquals(0, CheapestNConsecutiveSeats.find(inputPlane, 2).length);
+        assertEquals(0, CheapestNConsecutiveSeats.find(inputPlane, 1).length);
 
     }
 
@@ -118,9 +114,9 @@ public class CheapestNConsecutiveSeatsTest {
                 new Seat(5, 0, 9, false)};
         inputPlane[0] = row;
         Seat[] result = CheapestNConsecutiveSeats.find(inputPlane, 2);
-        assertThat(result.length, is(2));
-        assertThat(result[0].seatId, is(row[6].seatId));
-        assertThat(result[1].seatId, is(row[7].seatId));
+        assertEquals(2, result.length);
+        assertEquals(row[6].seatId, result[0].seatId);
+        assertEquals(row[7].seatId, result[1].seatId);
     }
 
 
@@ -177,10 +173,10 @@ public class CheapestNConsecutiveSeatsTest {
         inputPlane[2] = rowThreeSamePrice;
         inputPlane[3] = rowFourWithCheapestSC;
         Seat[] result = CheapestNConsecutiveSeats.find(inputPlane, 3);
-        assertThat(result.length, is(3));
-        assertThat(result[0].seatId, is(rowFourWithCheapestSC[5].seatId));
-        assertThat(result[1].seatId, is(rowFourWithCheapestSC[6].seatId));
-        assertThat(result[2].seatId, is(rowFourWithCheapestSC[7].seatId));
+        assertEquals(3, result.length);
+        assertEquals(rowFourWithCheapestSC[5].seatId, result[0].seatId);
+        assertEquals(rowFourWithCheapestSC[6].seatId, result[1].seatId);
+        assertEquals(rowFourWithCheapestSC[7].seatId, result[2].seatId);
     }
 
     private Seat[][] somePlane() {

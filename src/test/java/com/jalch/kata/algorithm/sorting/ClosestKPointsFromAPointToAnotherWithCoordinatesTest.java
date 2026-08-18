@@ -1,6 +1,6 @@
 package com.jalch.kata.algorithm.sorting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,8 +13,7 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.util.Arrays.asList;
 import static java.util.Collections.EMPTY_LIST;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings("Duplicates")
 public class ClosestKPointsFromAPointToAnotherWithCoordinatesTest {
@@ -25,48 +24,48 @@ public class ClosestKPointsFromAPointToAnotherWithCoordinatesTest {
 
     @Test
     public void null_or_empty_coordinates_input() {
-        assertThat(getByFullSorting(ANY_NUMBER, null, EMPTY_LIST).size(), is(0));
-        assertThat(getByFullSorting(ANY_NUMBER, EMPTY_LIST, null).size(), is(0));
+        assertEquals(0, getByFullSorting(ANY_NUMBER, null, EMPTY_LIST).size());
+        assertEquals(0, getByFullSorting(ANY_NUMBER, EMPTY_LIST, null).size());
 
-        assertThat(getByUsingMaxHeap(ANY_NUMBER, null, EMPTY_LIST).size(), is(0));
-        assertThat(getByUsingMaxHeap(ANY_NUMBER, EMPTY_LIST, null).size(), is(0));
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, null, EMPTY_LIST).size());
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, EMPTY_LIST, null).size());
     }
 
     @Test
     public void zero_or_negative_k_required() {
-        assertThat(getByFullSorting(0, ANY_POINT, ANY_POINTS).size(), is(0));
-        assertThat(getByFullSorting(-1, ANY_POINT, ANY_POINTS).size(), is(0));
+        assertEquals(0, getByFullSorting(0, ANY_POINT, ANY_POINTS).size());
+        assertEquals(0, getByFullSorting(-1, ANY_POINT, ANY_POINTS).size());
 
-        assertThat(getByUsingMaxHeap(0, ANY_POINT, ANY_POINTS).size(), is(0));
-        assertThat(getByUsingMaxHeap(-1, ANY_POINT, ANY_POINTS).size(), is(0));
+        assertEquals(0, getByUsingMaxHeap(0, ANY_POINT, ANY_POINTS).size());
+        assertEquals(0, getByUsingMaxHeap(-1, ANY_POINT, ANY_POINTS).size());
     }
 
     @Test
     public void coordinates_incorrect_size() {
-        assertThat(getByFullSorting(ANY_NUMBER, asList(3), ANY_POINTS).size(), is(0));
-        assertThat(getByFullSorting(ANY_NUMBER, asList(3, 4, 5), ANY_POINTS).size(), is(0));
-        assertThat(getByFullSorting(ANY_NUMBER, ANY_POINT, asList(asList(3))).size(), is(0));
-        assertThat(getByFullSorting(ANY_NUMBER, ANY_POINT, asList(asList(3, 4, 5))).size(), is(0));
+        assertEquals(0, getByFullSorting(ANY_NUMBER, asList(3), ANY_POINTS).size());
+        assertEquals(0, getByFullSorting(ANY_NUMBER, asList(3, 4, 5), ANY_POINTS).size());
+        assertEquals(0, getByFullSorting(ANY_NUMBER, ANY_POINT, asList(asList(3))).size());
+        assertEquals(0, getByFullSorting(ANY_NUMBER, ANY_POINT, asList(asList(3, 4, 5))).size());
 
-        assertThat(getByUsingMaxHeap(ANY_NUMBER, asList(3), ANY_POINTS).size(), is(0));
-        assertThat(getByUsingMaxHeap(ANY_NUMBER, asList(3, 4, 5), ANY_POINTS).size(), is(0));
-        assertThat(getByUsingMaxHeap(ANY_NUMBER, ANY_POINT, asList(asList(3))).size(), is(0));
-        assertThat(getByUsingMaxHeap(ANY_NUMBER, ANY_POINT, asList(asList(3, 4, 5))).size(), is(0));
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, asList(3), ANY_POINTS).size());
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, asList(3, 4, 5), ANY_POINTS).size());
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, ANY_POINT, asList(asList(3))).size());
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, ANY_POINT, asList(asList(3, 4, 5))).size());
     }
 
     @Test
     public void more_k_request_than_available() {
         List<List<Integer>> result = getByFullSorting(4, ANY_POINT, ANY_POINTS);
-        assertThat(result.size(), is(3));
-        assertThat(result.get(0), is(asList(0,6)));
-        assertThat(result.get(1), is(asList(2,6)));
-        assertThat(result.get(2), is(asList(3,6)));
+        assertEquals(3, result.size());
+        assertEquals(asList(0,6), result.get(0));
+        assertEquals(asList(2,6), result.get(1));
+        assertEquals(asList(3,6), result.get(2));
 
         result = getByUsingMaxHeap(4, ANY_POINT, ANY_POINTS);
-        assertThat(result.size(), is(3));
-        assertThat(result.get(0), is(asList(0,6)));
-        assertThat(result.get(1), is(asList(2,6)));
-        assertThat(result.get(2), is(asList(3,6)));
+        assertEquals(3, result.size());
+        assertEquals(asList(0,6), result.get(0));
+        assertEquals(asList(2,6), result.get(1));
+        assertEquals(asList(3,6), result.get(2));
     }
 
     @Test //Executed in ~1,6 seconds in average (2.5 GHz Intel Core i7)

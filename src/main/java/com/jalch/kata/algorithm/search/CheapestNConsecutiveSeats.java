@@ -1,6 +1,5 @@
 package com.jalch.kata.algorithm.search;
 
-import java.util.*;
 
 import static java.util.Arrays.copyOfRange;
 

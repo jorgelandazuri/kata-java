@@ -1,58 +1,56 @@
 package com.jalch.kata.algorithm.lang;
 
-import org.junit.Test;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PowerOfTwoSumTest {
 
 
     @Test
     public void sum_pow_of_negative() {
-        assertThat(PowerOfTwoSum.calculateWithShifting(-1), is(0L));
+        assertEquals(0L, PowerOfTwoSum.calculateWithShifting(-1));
     }
 
     @Test
     public void sum_pow_of_zero() {
-        assertThat(PowerOfTwoSum.calculateWithShifting(0), is(0L));
+        assertEquals(0L, PowerOfTwoSum.calculateWithShifting(0));
     }
 
     @Test
     public void sum_pow_of_positive_with_shifting() {
-        assertThat(PowerOfTwoSum.calculateWithShifting(1), is(1L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(2), is(3L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(3), is(7L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(4), is(15L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(5), is(31L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(6), is(63L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(7), is(127L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(8), is(255L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(9), is(511L));
-        assertThat(PowerOfTwoSum.calculateWithShifting(10),is(1023L));
+        assertEquals(1L, PowerOfTwoSum.calculateWithShifting(1));
+        assertEquals(3L, PowerOfTwoSum.calculateWithShifting(2));
+        assertEquals(7L, PowerOfTwoSum.calculateWithShifting(3));
+        assertEquals(15L, PowerOfTwoSum.calculateWithShifting(4));
+        assertEquals(31L, PowerOfTwoSum.calculateWithShifting(5));
+        assertEquals(63L, PowerOfTwoSum.calculateWithShifting(6));
+        assertEquals(127L, PowerOfTwoSum.calculateWithShifting(7));
+        assertEquals(255L, PowerOfTwoSum.calculateWithShifting(8));
+        assertEquals(511L, PowerOfTwoSum.calculateWithShifting(9));
+        assertEquals(1023L, PowerOfTwoSum.calculateWithShifting(10));
     }
 
     @Test
     public void sum_pow_of_hundred_with_shifting() {
-        assertThat(PowerOfTwoSum.calculateWithShifting(63), is(Long.MAX_VALUE));
+        assertEquals(Long.MAX_VALUE, PowerOfTwoSum.calculateWithShifting(63));
     }
 
     @Test
     public void sum_pow_of_positive_with_math_pow() {
-        assertThat(PowerOfTwoSum.calculateWithPow(1), is(1L));
-        assertThat(PowerOfTwoSum.calculateWithPow(2), is(3L));
-        assertThat(PowerOfTwoSum.calculateWithPow(3), is(7L));
-        assertThat(PowerOfTwoSum.calculateWithPow(4), is(15L));
-        assertThat(PowerOfTwoSum.calculateWithPow(5), is(31L));
-        assertThat(PowerOfTwoSum.calculateWithPow(6), is(63L));
-        assertThat(PowerOfTwoSum.calculateWithPow(7), is(127L));
-        assertThat(PowerOfTwoSum.calculateWithPow(8), is(255L));
-        assertThat(PowerOfTwoSum.calculateWithPow(9), is(511L));
-        assertThat(PowerOfTwoSum.calculateWithPow(10),is(1023L));
+        assertEquals(1L, PowerOfTwoSum.calculateWithPow(1));
+        assertEquals(3L, PowerOfTwoSum.calculateWithPow(2));
+        assertEquals(7L, PowerOfTwoSum.calculateWithPow(3));
+        assertEquals(15L, PowerOfTwoSum.calculateWithPow(4));
+        assertEquals(31L, PowerOfTwoSum.calculateWithPow(5));
+        assertEquals(63L, PowerOfTwoSum.calculateWithPow(6));
+        assertEquals(127L, PowerOfTwoSum.calculateWithPow(7));
+        assertEquals(255L, PowerOfTwoSum.calculateWithPow(8));
+        assertEquals(511L, PowerOfTwoSum.calculateWithPow(9));
+        assertEquals(1023L, PowerOfTwoSum.calculateWithPow(10));
     }
 
     @Test
     public void sum_pow_of_hundred_with_math_pow() {
-        assertThat(PowerOfTwoSum.calculateWithPow(63), is(Long.MAX_VALUE));
+        assertEquals(Long.MAX_VALUE, PowerOfTwoSum.calculateWithPow(63));
     }
 }
