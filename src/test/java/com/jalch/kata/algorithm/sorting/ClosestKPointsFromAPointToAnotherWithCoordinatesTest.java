@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -12,7 +13,6 @@ import static com.jalch.kata.algorithm.sorting.ClosestKPointsFromAPointToAnother
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.util.Arrays.asList;
-import static java.util.Collections.EMPTY_LIST;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings("Duplicates")
@@ -24,11 +24,11 @@ public class ClosestKPointsFromAPointToAnotherWithCoordinatesTest {
 
     @Test
     public void null_or_empty_coordinates_input() {
-        assertEquals(0, getByFullSorting(ANY_NUMBER, null, EMPTY_LIST).size());
-        assertEquals(0, getByFullSorting(ANY_NUMBER, EMPTY_LIST, null).size());
+        assertEquals(0, getByFullSorting(ANY_NUMBER, null, Collections.emptyList()).size());
+        assertEquals(0, getByFullSorting(ANY_NUMBER, Collections.emptyList(), null).size());
 
-        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, null, EMPTY_LIST).size());
-        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, EMPTY_LIST, null).size());
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, null, Collections.emptyList()).size());
+        assertEquals(0, getByUsingMaxHeap(ANY_NUMBER, Collections.emptyList(), null).size());
     }
 
     @Test
