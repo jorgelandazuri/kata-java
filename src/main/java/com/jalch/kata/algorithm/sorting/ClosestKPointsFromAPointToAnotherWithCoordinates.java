@@ -8,15 +8,16 @@ import static java.lang.Double.compare;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.util.Arrays.asList;
-import static java.util.Collections.EMPTY_LIST;
 import static java.util.Comparator.naturalOrder;
+
+import java.util.Collections;
 
 class ClosestKPointsFromAPointToAnotherWithCoordinates {
     //coordinates.size() = n
 
     //Time complexity: O(n) + O(n log n) + 0(1) ~ O(n log n)
     static List<List<Integer>> getByFullSorting(int k, List<Integer> position, List<List<Integer>> coordinates) {
-        if(notValidInput(k, position, coordinates)) return EMPTY_LIST;
+        if(notValidInput(k, position, coordinates)) return Collections.emptyList();
 
         //O(n)
         List<CoordinatesWithDistance> coordinatesWithDistances = getCoordinatesWithDistance(position, coordinates);
@@ -37,7 +38,7 @@ class ClosestKPointsFromAPointToAnotherWithCoordinates {
     // ~ 0(k log k) if n == k
     //      => But would tend to be faster than full sort one as the max heap is sorted by levels at least (see test)
     static List<List<Integer>> getByUsingMaxHeap(int k, List<Integer> position, List<List<Integer>> coordinates) {
-        if(notValidInput(k, position, coordinates)) return EMPTY_LIST;
+        if(notValidInput(k, position, coordinates)) return Collections.emptyList();
 
         //O(n)
         List<CoordinatesWithDistance> coordinatesWithDistances = getCoordinatesWithDistance(position, coordinates);

@@ -9,7 +9,7 @@ public class CompanyHierarchyPerLevels {
     //Assuming input is correct and validated
     public static String findUsingBTree(String input) {
         Scanner scanner = new Scanner(input);
-        int numberOfEmployees = Integer.parseInt(scanner.nextLine());
+        Integer.parseInt(scanner.nextLine());
         upperManager = new Employee();
         for (int i = 0; scanner.hasNextLine(); i++) {
             String currentLine = scanner.nextLine();
@@ -19,6 +19,7 @@ public class CompanyHierarchyPerLevels {
         }
         String s = buildHierarchyString(upperManager);
         System.out.print(s);
+        scanner.close();
         return s;
     }
 

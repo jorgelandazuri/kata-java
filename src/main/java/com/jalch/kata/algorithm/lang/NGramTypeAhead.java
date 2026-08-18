@@ -42,32 +42,36 @@ public class NGramTypeAhead {
 
     private static int totalNGramOccurrences;
 
-    public void run() {
+    public static void main(String... args){
+        run();
+    }
+
+    public static void run() {
         System.out.println("Please enter an n-gram length and text to predict the next word.");
         System.out.println("Type 'exit' to terminate the program.");
         System.out.println("");
         System.out.println("The text used to predict the next word is:");
         System.out.println(CORPUS_TEXT);
         String input = null;
+        Scanner scanner = new Scanner(System.in);
         while (!"exit".equals(input)) {
             System.out.println("Use the format 'n,text'. e.g '2,the' or '3,Mary had'. Then press Enter.");
-            Scanner scanner = new Scanner(System.in);
             input = scanner.nextLine();
             if (!"exit".equals(input.toLowerCase())) {
-                if (input.matches("^[0-9]+,\\w+(\\w+)*$")) {
+                if (input.matches("^[0-9]+,\\w+(\\s\\w+)*$")) {
                     String[] split = input.split(",");
-                    String probableWordsWithProbabilities = new NGramTypeAhead().getProbableWords(Integer.parseInt(split[0]), split[1], CORPUS_TEXT);
+                    String probableWordsWithProbabilities = getProbableWords(Integer.parseInt(split[0]), split[1], CORPUS_TEXT);
                     System.out.println(probableWordsWithProbabilities);
                 } else {
                     System.out.println("Invalid input");
                 }
             }
         }
+        scanner.close();
     }
 
 
-    public String getProbableWords(int n, String inputText, String corpusText) {
-
+    public static String getProbableWords(int n, String inputText, String corpusText) {
 
         if (inputText == null || inputText.trim().isEmpty())
             return "Invalid input text, cannot be null, empty or be just space characters.";
@@ -83,7 +87,7 @@ public class NGramTypeAhead {
         return buildResultString(probableNextWordsWithOccurrencesCount);
     }
 
-    private List<String> cleanAndAdaptUserText(int n, String userText) {
+    private static List<String> cleanAndAdaptUserText(int n, String userText) {
         List<String> userWords = cleanAndTokenizeWords(userText);
         int userWordsSize = userWords.size();
         return userWordsSize >= n ?
@@ -91,11 +95,11 @@ public class NGramTypeAhead {
                 : userWords;
     }
 
-    private List<String> cleanAndTokenizeWords(String text) {
+    private static List<String> cleanAndTokenizeWords(String text) {
         return Arrays.asList(text.trim().replaceAll("[^\\p{Alnum}\\s]", " ").trim().toLowerCase().split("\\s+"));
     }
 
-    private TreeMap<Integer, TreeSet<String>> scanWithNGramWindow(int n, List<String> nGramSuitableInputWords,
+    private static TreeMap<Integer, TreeSet<String>> scanWithNGramWindow(int n, List<String> nGramSuitableInputWords,
                                                                   List<String> corpusWords) {
 
         int upperWindowIndexForSublist = n;
@@ -120,7 +124,7 @@ public class NGramTypeAhead {
         return getSortedOccurrencesMap(probableWordsAndOccurrences);
     }
 
-    private String buildResultString(TreeMap<Integer, TreeSet<String>> probableNextWordsWithOcurrencesCount) {
+    private static String buildResultString(TreeMap<Integer, TreeSet<String>> probableNextWordsWithOcurrencesCount) {
         StringBuilder resultBuilder = new StringBuilder();
         String prefix = "";
         for (Map.Entry<Integer, TreeSet<String>> entry : probableNextWordsWithOcurrencesCount.entrySet()) {
@@ -132,7 +136,7 @@ public class NGramTypeAhead {
 
     }
 
-    private TreeMap<Integer, TreeSet<String>> getSortedOccurrencesMap(Map<String, Integer> occurrencesMap) {
+    private static TreeMap<Integer, TreeSet<String>> getSortedOccurrencesMap(Map<String, Integer> occurrencesMap) {
 
         TreeMap<Integer, TreeSet<String>> sortedProbableWordsOccurrences = new TreeMap<>(Collections.reverseOrder());
         for (Map.Entry<String, Integer> entry : occurrencesMap.entrySet()) {
@@ -150,14 +154,14 @@ public class NGramTypeAhead {
         return sortedProbableWordsOccurrences;
     }
 
-    private String getProbabilityString(Map.Entry<Integer, TreeSet<String>> entry) {
+    private static String getProbabilityString(Map.Entry<Integer, TreeSet<String>> entry) {
 
         String probability = getProbability(entry.getKey());
         return String.join(";",
                 entry.getValue().stream().map(word -> word + "," + probability).collect(Collectors.toList()));
     }
 
-    private String getProbability(int count) {
+    private static String getProbability(int count) {
         Float result = (float) count / totalNGramOccurrences;
         return String.format("%.3f", result);
     }

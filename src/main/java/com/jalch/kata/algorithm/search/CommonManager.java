@@ -47,6 +47,7 @@ public class CommonManager {
                 break;
             }
         }
+        scanner.close();
         return managerInCommonFor(employeeA, employeeB, employeeToDirectManager);
     }
 

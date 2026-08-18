@@ -86,7 +86,7 @@ public class MaxNumberOfPricedItemsWithBudget {
 
     private class InsertionSorter implements ToyPriceMinSorter<Collection<Integer>> {
         @Override
-        public Collection sort(int[] toyPrices) {
+        public Collection<Integer> sort(int[] toyPrices) {
             LinkedList<Integer> orderedList = new LinkedList<>();
             if (toyPrices.length > 0) {
                 orderedList.addFirst(toyPrices[0]);

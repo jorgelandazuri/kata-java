@@ -1,4 +1,4 @@
-package com.jalch.kata.algorithm.lang;
+package com.jalch.kata.algorithm.recursion;
 //You are given two non-empty linked lists representing two non-negative integers.
 //The most significant digit comes first and each of their nodes contain a single digit.
 //Add the two numbers and return it as a linked list.
@@ -67,7 +67,7 @@ public class SumUsingListedDigits {
             list.push(0);
     }
 
-    private boolean nullOrEmpty(LinkedList list) {
+    private boolean nullOrEmpty(LinkedList<Integer> list) {
         return list == null || list.isEmpty();
     }
 
