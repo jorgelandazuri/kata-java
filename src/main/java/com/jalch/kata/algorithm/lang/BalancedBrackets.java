@@ -2,6 +2,7 @@ package com.jalch.kata.algorithm.lang;
 
 import java.util.HashMap;
 import java.util.Map;
+// import java.util.Stack;
 
 //https://www.hackerrank.com/challenges/balanced-brackets/problem
 
@@ -21,7 +22,7 @@ class BalancedBrackets {
         if (input.isEmpty()) return true;
 
         CharStack charStack = new CharStack();
-//            Stack<Character> charStack = new Stack<>();
+        //    Stack<Character> charStack = new Stack<>();
         for (char current : input.toCharArray()) {
             if ("([{".contains(current + "")) charStack.push(current);
 
