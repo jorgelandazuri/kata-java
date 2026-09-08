@@ -67,7 +67,7 @@ public class BinaryStringPatternMatching {
     // of length 15 ("010101010101010").
     // Execution time: ~3.1 ms (~17x faster)
     public static int getMatchesOptimised(String source, String pattern) {
-        boolean invalidSource = source == null || source.isEmpty();
+        boolean invalidSource = source == null || source.isBlank();
         boolean invalidPattern = pattern == null || pattern.isBlank() || !pattern.matches(PATTERN_REGEX);
 
         if (invalidSource || invalidPattern) {
