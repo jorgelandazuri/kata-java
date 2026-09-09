@@ -11,7 +11,7 @@ public class BinarySubarrayCardinalitySum {
     // to target.
     // ===========================================================================
 
-    // Time Complexity:  O(N)
+    // Time Complexity: O(N)
     // Space Complexity: O(N)
     public static int countContinuousSubarrays(int[] nums, int target) {
         if (nums == null || nums.length == 0)
@@ -54,7 +54,7 @@ public class BinarySubarrayCardinalitySum {
     // with an equal number of 0s and 1s
     // =========================================================================
 
-    // Time Complexity:  O(N)
+    // Time Complexity: O(N)
     // Space Complexity: O(N)
     public static int findLongestNeutralSumSubarrayLength(int[] nums) {
         if (nums == null || nums.length < 2)
