@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class BinaryWindowLexicographicalReductionTest {
+public class MinesweeperClueGeneratorTest {
 
     static Stream<Arguments> testData() {
         return Stream.of(
@@ -55,6 +55,6 @@ public class BinaryWindowLexicographicalReductionTest {
     @ParameterizedTest(name = "Test {index}: For mine matrix {0}, the expected adjacent mines matrix is {1} ")
     @MethodSource("testData")
     void testGetMatrixDimension(boolean[][] input, int[][] expected) {
-        Assertions.assertArrayEquals(expected, BinaryWindowLexicographicalReduction.getMatrixDimension(input));
+        Assertions.assertArrayEquals(expected, MinesweeperClueGenerator.getMatrixDimension(input));
     }
 }

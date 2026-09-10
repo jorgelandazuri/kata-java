@@ -1,6 +1,6 @@
 package com.jalch.kata.algorithm.lang;
 
-public class BinaryWindowLexicographicalReduction {
+public class MinesweeperClueGenerator {
 
     // =======================================================================
     // Given an M × N boolean matrix representing a minefield grid where true
