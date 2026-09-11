@@ -25,7 +25,7 @@ public class RotateArrayByKPositionsTest {
     @ParameterizedTest(name = "For array {0} and k {1}, the expected rotated array should be {2}")
     @MethodSource("testData")
     public void rotateArray(int[] input, int k, int[] expected) {
-        int[] result = RotateArrayByKPositions.rotate(input, k);
-        Assertions.assertArrayEquals(expected, result);
+        Assertions.assertArrayEquals(expected, RotateArrayByKPositions.rotateWithExtraSpace(input, k));
+        Assertions.assertArrayEquals(expected, RotateArrayByKPositions.rotateInPlace(input, k));
     }
 }

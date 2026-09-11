@@ -9,7 +9,7 @@ public class RotateArrayByKPositions {
     // Two pointers problem.
     // Time complexity O(n + k + n - k) -> O(2n) -> O(n)
     // Space complexity O(1)
-    public static int[] rotate(int[] nums, int k) {
+    public static int[] rotateInPlace(int[] nums, int k) {
         if (nums == null || nums.length == 0)
             return nums;
         k = k % nums.length;
@@ -32,6 +32,22 @@ public class RotateArrayByKPositions {
             end--;
         }
         ;
+    }
+
+    // Time complexity O(n)
+    // Space complexity O(n)
+    public static int[] rotateWithExtraSpace(int[] nums, int k) {
+        if (nums == null || nums.length == 0)
+            return nums;
+        k = k % nums.length;
+        if (k == 0)
+            return nums;
+        int[] rotatedArr = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            // Shifts elements clockwise by k steps using the flat length pool
+            rotatedArr[(i + k) % nums.length] = nums[i];
+        }
+        return rotatedArr;
     }
 
 }
