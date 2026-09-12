@@ -19,7 +19,6 @@ public class TargetDigitArrayShiftToEnd {
                 if (writeIndex != readIndex) {
                     nums[writeIndex] = nums[readIndex];
                 }
-                ;
                 writeIndex++;
             }
         }
